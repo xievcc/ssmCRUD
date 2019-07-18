@@ -38,6 +38,15 @@ public void testGetAllEmps() throws Exception {
     List<Employee> allEmps = employeeService.getAllEmps();
     System.out.println(allEmps);
 } 
-
+    @Test
+    public void testCheckUser(){
+        boolean yys = employeeService.checkUser("yys");
+        System.out.println(yys);
+    }
+    @Test
+    public void testGetEmpById(){
+        Employee employee = employeeService.getEmpById(2);
+        System.out.println(employee);
+    }
 
 } 

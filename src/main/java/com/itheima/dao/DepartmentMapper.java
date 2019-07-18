@@ -2,6 +2,8 @@ package com.itheima.dao;
 
 import com.itheima.domain.Department;
 
+import java.util.List;
+
 public interface DepartmentMapper {
     int deleteByPrimaryKey(Integer deptId);
 
@@ -10,6 +12,8 @@ public interface DepartmentMapper {
     int insertSelective(Department record);
 
     Department selectByPrimaryKey(Integer deptId);
+
+    List<Department> selectALlDepartment();
 
     int updateByPrimaryKeySelective(Department record);
 
