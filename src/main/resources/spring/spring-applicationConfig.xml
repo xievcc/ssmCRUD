@@ -29,8 +29,8 @@
     </bean>
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="*" propagation="SUPPORTS"/>
-            <tx:method name="find*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+            <tx:method name="get*" read-only="true" propagation="SUPPORTS"/>
         </tx:attributes>
     </tx:advice>
     <aop:config>
@@ -46,5 +46,10 @@
 
     <mybatis-spring:scan base-package="com.itheima.dao"/>
 
+    <!--创建出可以批量操作的sqlSession对象-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sessionFactoryBean"/>
+        <constructor-arg name="executorType" value="BATCH"/>
+    </bean>
 
 </beans>

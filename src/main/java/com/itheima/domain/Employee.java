@@ -22,4 +22,18 @@ public class Employee implements Serializable {
     private Department dept;
 
     private static final long serialVersionUID = 1L;
+
+    public Employee(Integer empId, @Pattern(regexp = "(^[a-zA-Z0-9_-]{4,16}$)|(^[\\u2E80-\\u9FFF]{2,5})",
+            message = "用户名必须是4-16位英文数字或2-5位中文") String empName, String empGender, @Pattern(regexp = "^([a-zA-Z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$",
+            message = "邮箱格式错误") String email, Integer deptId, Department dept) {
+        this.empId = empId;
+        this.empName = empName;
+        this.empGender = empGender;
+        this.email = email;
+        this.deptId = deptId;
+        this.dept = dept;
+    }
+
+    public Employee() {
+    }
 }

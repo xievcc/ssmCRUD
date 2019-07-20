@@ -23,7 +23,7 @@ import java.util.Map;
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
-    @RequestMapping(value = "/emps",method = RequestMethod.GET)
+    @RequestMapping("/emps")
     @ResponseBody
     public Msg getEmpsWithJson(@RequestParam(value = "pn",defaultValue = "1") Integer pn){
         PageHelper.startPage(pn,6);
